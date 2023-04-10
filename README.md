@@ -38,13 +38,15 @@ So, need to use all features, but not simply concatenating them.
 
 Authors propose their algorithm:
 
-    1. features from i-th block goes through Sobel layer:
+   1. features from i-th block goes through Sobel layer:
+   2. 
 ![Image text](sobel_layer.png)
 
-    2. then goes into edge residual block(ERB):
+   2. then goes into edge residual block(ERB):
+   3. 
 ![Image text](erb_block.png)
 
-    3. to prevent the effect of accumulation, the combined features go through another ERB before the next round of feature combination
+   3. to prevent the effect of accumulation, the combined features go through another ERB before the next round of feature combination
 
 The output of ESB has two parts:
 
@@ -66,7 +68,7 @@ This branch is parallel with Edge-Supervised Branch
 **Branch Fusion by Dual Attention**
 
 At this point we have two arrays:
-$${f_{esb,1}, . . . , f_{esb,k}} \;\; and \;\; {f_{nsb,1}, . . . , f_{nsb,k}}$$
+${f_{esb,1}, . . . , f_{esb,k}}$ and ${f_{nsb,1}, . . . , f_{nsb,k}}$
 
 Previous work uses non-trainable bilinear pooling for feature fusion.
 
@@ -87,7 +89,7 @@ Outputs are summed up and transformed in a new feature map, then transformed int
 Authors consider losses at three scales:
 1. **pixel-scale loss** for improving the model’s sensitivity for pixel-level manipulation detection = Dice loss:
 
-$$loss_{seg}(x) = 1 −  \frac{2\sum_{i=1}^{W×H}G(x_i)·y_i}{\sum_{i=1}^{W×H}G(x_i)^2 + \sum_{i=1}^{W×H}y_i^2}$$
+$$loss_{seg}(x) = 1 −  \frac{2\sum_{i=1}^{W×H} G(x_i)·y_i}{\sum_{i=1}^{W×H}G(x_i)^2 + \sum_{i=1}^{W×H}y_i^2}$$
 
 2. **edge loss** for learning semantic-agnostic features = again Dice loss:
 
