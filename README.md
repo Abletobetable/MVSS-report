@@ -38,13 +38,13 @@ So, need to use all features, but not simply concatenating them.
 
 Authors propose their algorithm:
 
-    1. features from i-th block goes through Sobel layer:
+ 1. features from i-th block goes through Sobel layer:
 ![Image text](sobel_layer.png)
 
-    2. then goes into edge residual block(ERB):
+ 2. then goes into edge residual block(ERB):
 ![Image text](erb_block.png)
 
-    3. to prevent the effect of accumulation, the combined features go through another ERB before the next round of feature combination
+ 3. to prevent the effect of accumulation, the combined features go through another ERB before the next round of feature combination
 
 The output of ESB has two parts:
 
